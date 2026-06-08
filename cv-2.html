@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sana Ravan — CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#201F1F;
+  --bg2:#252323;
+  --text:#F5F4F0;
+  --muted:#888;
+  --border:#333;
+  --orange:#FF4800;
+  --blue:#0049FF;
+  --purple:#7D39EB;
+  --lime:#C6FF33;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Space Grotesk',sans-serif;
+  font-weight:300;
+  min-height:100vh;
+}
+
+/* GRAIN */
+body::before{
+  content:'';
+  position:fixed;
+  inset:-50%;
+  width:200%;
+  height:200%;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity:.055;
+  pointer-events:none;
+  z-index:9990;
+  animation:grainMove 8s steps(10) infinite;
+}
+@keyframes grainMove{
+  0%{transform:translate(0,0);}10%{transform:translate(-2%,-3%);}20%{transform:translate(3%,1%);}
+  30%{transform:translate(-1%,4%);}40%{transform:translate(4%,-2%);}50%{transform:translate(-3%,3%);}
+  60%{transform:translate(2%,-4%);}70%{transform:translate(-4%,2%);}80%{transform:translate(3%,-1%);}
+  90%{transform:translate(-2%,3%);}100%{transform:translate(0,0);}
+}
+
+/* NAV */
+nav{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:24px 60px;border-bottom:1px solid var(--border);
+  position:sticky;top:0;background:var(--bg);z-index:100;
+}
+.nav-logo{font-size:14px;font-weight:600;letter-spacing:1px;text-decoration:none;color:var(--text);}
+.nav-logo em{color:var(--orange);font-style:normal;}
+.nav-back{font-size:11px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;color:var(--muted);transition:color .2s;}
+.nav-back:hover{color:var(--text);}
+.nav-dl{border:1px solid var(--orange);color:var(--orange);padding:9px 20px;font-size:11px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all .2s;}
+.nav-dl:hover{background:var(--orange);color:#000;}
+
+/* HEADER */
+.cv-header{
+  padding:64px 60px 48px;border-bottom:1px solid var(--border);
+  display:flex;justify-content:space-between;align-items:flex-end;gap:40px;
+}
+.cv-name{font-size:clamp(48px,7vw,96px);font-weight:700;line-height:1;letter-spacing:-2px;}
+.cv-name .ravan{color:var(--blue);}
+.cv-title{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-top:12px;}
+.cv-header-right{text-align:right;font-size:13px;color:var(--muted);line-height:2.2;flex-shrink:0;}
+.cv-header-right a{color:var(--muted);text-decoration:none;transition:color .2s;}
+.cv-header-right a:hover{color:var(--orange);}
+
+/* ABOUT */
+.cv-about{
+  padding:40px 60px;border-bottom:1px solid var(--border);
+}
+.cv-about p{font-size:14px;color:var(--muted);line-height:1.9;max-width:780px;}
+
+/* MAIN GRID */
+.cv-body{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+.cv-col{padding:48px 60px;border-right:1px solid var(--border);}
+.cv-col:last-child{border-right:none;}
+
+/* SECTION */
+.cv-section{margin-bottom:48px;}
+.cv-section-title{
+  font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--orange);margin-bottom:28px;padding-bottom:12px;
+  border-bottom:1px solid var(--border);
+}
+
+/* ENTRY */
+.cv-entry{margin-bottom:32px;}
+.cv-entry-header{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:4px;}
+.cv-entry-title{font-size:15px;font-weight:600;color:var(--text);}
+.cv-entry-meta{font-size:12px;color:var(--muted);letter-spacing:.5px;text-align:right;white-space:nowrap;flex-shrink:0;}
+.cv-entry-sub{font-size:13px;color:var(--muted);margin-bottom:10px;font-style:italic;}
+.cv-entry-desc{font-size:13px;color:var(--muted);line-height:1.85;}
+.cv-entry-desc ul{padding-left:16px;margin-top:6px;}
+.cv-entry-desc li{margin-bottom:5px;}
+
+/* SKILLS */
+.skills-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;}
+.skill-tag{font-size:11px;letter-spacing:1px;padding:6px 14px;border:1px solid var(--border);color:var(--muted);text-transform:uppercase;}
+
+/* CONTACT */
+.cv-contact{
+  padding:48px 60px;border-top:1px solid var(--border);
+  display:flex;gap:60px;flex-wrap:wrap;
+}
+.cv-contact-item{display:flex;flex-direction:column;gap:4px;}
+.cv-contact-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);}
+.cv-contact-value{font-size:14px;color:var(--text);text-decoration:none;transition:color .2s;}
+.cv-contact-value:hover{color:var(--orange);}
+
+footer{
+  padding:24px 60px;border-top:1px solid var(--border);
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:11px;color:var(--muted);letter-spacing:1px;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Sana Ravan<em>.</em></a>
+  <a href="index.html" class="nav-back">← Back to Portfolio</a>
+  <a href="SANA_RAVAN__CV-2.pdf" download class="nav-dl">Download PDF</a>
+</nav>
+
+<!-- HEADER -->
+<header class="cv-header">
+  <div>
+    <h1 class="cv-name">SANA <span class="ravan">RAVAN</span></h1>
+    <p class="cv-title">UI/UX Designer</p>
+  </div>
+  <div class="cv-header-right">
+    <div>+39 3477398949</div>
+    <div><a href="mailto:sana.ravan320@gmail.com">sana.ravan320@gmail.com</a></div>
+    <div><a href="https://linkedin.com/in/sana-ravan" target="_blank">LinkedIn</a></div>
+    <div>Naples, Italy (currently)</div>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section class="cv-about">
+  <p>Multidisciplinary designer bridging architecture, digital product design, and Apple development. With a background in architecture and a Master's in Design for Built Environment, I approach design problems with spatial intuition and systems thinking. Currently developing iOS apps and UI/UX prototypes, while building a creative practice that spans digital art, product design, and immersive user experiences. Photography and music enthusiast.</p>
+</section>
+
+<!-- BODY -->
+<div class="cv-body">
+
+  <!-- LEFT COLUMN: Education + Skills + Languages + Software -->
+  <div class="cv-col">
+
+    <div class="cv-section">
+      <div class="cv-section-title">Education</div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-header">
+          <div class="cv-entry-title">Masters Degree in Design for Built Environment</div>
+          <div class="cv-entry-meta">Sep 2023 — Present</div>
+        </div>
+        <div class="cv-entry-sub">Federico II University, Naples, Italy</div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-header">
+          <div class="cv-entry-title">Bachelors Degree in Architectural Engineering</div>
+          <div class="cv-entry-meta">Sep 2016 — July 2020</div>
+        </div>
+        <div class="cv-entry-sub">Bushehr University of Arts</div>
+      </div>
+
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Skills</div>
+      <div class="cv-entry-desc">
+        <ul>
+          <li>Communication</li>
+          <li>Team dynamics & conflict mediation</li>
+          <li>Creative problem solving</li>
+          <li>Collaborative leadership</li>
+          <li>Cross-disciplinary thinking</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Languages</div>
+      <div class="cv-entry">
+        <div class="cv-entry-title">English <span style="color:var(--muted);font-weight:300;font-size:13px;">— Fluent</span></div>
+      </div>
+      <div class="cv-entry">
+        <div class="cv-entry-title">Italian <span style="color:var(--muted);font-weight:300;font-size:13px;">— Pre-Intermediate</span></div>
+      </div>
+    </div>
+
+    <div class="cv-section">
+      <div class="cv-section-title">Software & Tools</div>
+      <div class="skills-grid">
+        <span class="skill-tag">Figma</span>
+        <span class="skill-tag">Sketch</span>
+        <span class="skill-tag">Xcode / SwiftUI</span>
+        <span class="skill-tag">Adobe Photoshop</span>
+        <span class="skill-tag">Illustrator</span>
+        <span class="skill-tag">SketchUp</span>
+        <span class="skill-tag">Procreate</span>
+        <span class="skill-tag">AutoCAD</span>
+        <span class="skill-tag">3D Modeling</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT COLUMN: Experience -->
+  <div class="cv-col">
+
+    <div class="cv-section">
+      <div class="cv-section-title">Experience</div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-header">
+          <div class="cv-entry-title">Apple Developer Academy</div>
+          <div class="cv-entry-meta">Naples, Italy<br>2025 — present</div>
+        </div>
+        <div class="cv-entry-sub">Student Learner</div>
+        <div class="cv-entry-desc">
+          <ul>
+            <li>Designing and prototyping iOS app concepts using SwiftUI and Xcode</li>
+            <li>Applying challenge-based methodology to solve real-world design and tech problems</li>
+            <li>Working in cross-functional teams bridging design thinking and development</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-header">
+          <div class="cv-entry-title">Freelance Designer & Visual Artist</div>
+          <div class="cv-entry-meta">Remote<br>2020 — present</div>
+        </div>
+        <div class="cv-entry-sub">Self-employed</div>
+        <div class="cv-entry-desc">
+          <ul>
+            <li>Delivered UI/UX concepts and product design solutions for independent client briefs</li>
+            <li>Produced digital illustrations and visual art across Procreate, print, and editorial mediums</li>
+            <li>Designed and presented architectural projects with high-quality graphical storytelling</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-header">
+          <div class="cv-entry-title">Interior Designer — Art-Furniture Gallery</div>
+          <div class="cv-entry-meta">Shiraz<br>2021</div>
+        </div>
+        <div class="cv-entry-sub">Designer / Social media manager</div>
+        <div class="cv-entry-desc">Designed interior and landscape concepts integrating the gallery's own art objects and furniture pieces.</div>
+      </div>
+
+      <div class="cv-entry">
+        <div class="cv-entry-header">
+          <div class="cv-entry-title">Architecture Intern — Charsough Office</div>
+          <div class="cv-entry-meta">Shiraz<br>2019</div>
+        </div>
+        <div class="cv-entry-sub">Junior designer</div>
+        <div class="cv-entry-desc">Contributed to Phase 1 architectural plans, layouts, and early-stage design development across multiple projects.</div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- CONTACT SECTION -->
+<section class="cv-contact">
+  <div class="cv-contact-item">
+    <span class="cv-contact-label">Email</span>
+    <a href="mailto:sana.ravan320@gmail.com" class="cv-contact-value">sana.ravan320@gmail.com</a>
+  </div>
+  <div class="cv-contact-item">
+    <span class="cv-contact-label">Phone / WhatsApp</span>
+    <a href="https://wa.me/393477398949" class="cv-contact-value">+39 347 739 8949</a>
+  </div>
+  <div class="cv-contact-item">
+    <span class="cv-contact-label">LinkedIn</span>
+    <a href="https://linkedin.com/in/sana-ravan" target="_blank" class="cv-contact-value">linkedin.com/in/sana-ravan</a>
+  </div>
+  <div class="cv-contact-item">
+    <span class="cv-contact-label">Pinterest</span>
+    <a href="https://pin.it/5IjTYeB7S" target="_blank" class="cv-contact-value">pin.it/5IjTYeB7S</a>
+  </div>
+  <div class="cv-contact-item">
+    <span class="cv-contact-label">Portfolio</span>
+    <a href="https://sanaravan320-hue.github.io" target="_blank" class="cv-contact-value">sanaravan320-hue.github.io</a>
+  </div>
+  <div class="cv-contact-item">
+    <span class="cv-contact-label">Location</span>
+    <span class="cv-contact-value">Naples, Italy</span>
+  </div>
+</section>
+
+<footer>
+  <span>Sana Ravan · CV 2026</span>
+  <span>Designed with the same spirit as everything else.</span>
+</footer>
+
+</body>
+</html>
