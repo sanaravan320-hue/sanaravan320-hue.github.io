@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV — Sana Ravan</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23FF4800'/%3E%3Ctext x='32' y='46' font-family='Arial,Helvetica,sans-serif' font-size='40' font-weight='700' fill='%23F5F4F0' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<meta name="description" content="CV of Sana Ravan — UI/UX designer in Naples. Architecture background, Apple Developer Academy, shipped iOS apps.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#E2DDD5; --bg2:#D6D0C7; --text:#111; --muted:rgba(0,0,0,.55);
+  --border:rgba(0,0,0,.14);
+  --orange:#FF4800; --blue:#0049FF; --purple:#7D39EB; --pink:#FF00B5; --lime:#4a7a00;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg); color:var(--text);
+  font-family:'Space Grotesk',sans-serif; font-weight:300;
+}
+/* grain */
+body::before{
+  content:''; position:fixed; inset:0; pointer-events:none; z-index:1; opacity:.16;
+  mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+}
+a{color:inherit;}
+/* NAV */
+nav{
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:20px 48px;
+  background:rgba(226,221,213,.85); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+}
+.nav-back{
+  font-size:11px; letter-spacing:2px; text-transform:uppercase; text-decoration:none;
+  color:var(--muted); transition:color .2s;
+}
+.nav-back:hover{color:var(--text);}
+.nav-dl{
+  border-radius:8px; background:var(--orange); color:#fff; padding:11px 24px;
+  font-size:10px; font-weight:600; letter-spacing:2.5px; text-transform:uppercase;
+  text-decoration:none; transition:transform .2s, box-shadow .2s;
+}
+.nav-dl:hover{transform:translateY(-2px); box-shadow:0 10px 26px rgba(255,72,0,.35);}
+/* PAGE */
+.page{max-width:1060px; margin:0 auto; padding:150px 32px 80px; position:relative; z-index:2;}
+/* HEADER */
+.cv-head{margin-bottom:64px; position:relative;}
+.cv-eyebrow{
+  font-size:10px; letter-spacing:4px; text-transform:uppercase; color:var(--orange);
+  display:flex; align-items:center; gap:12px; margin-bottom:20px;
+}
+.cv-eyebrow::before{content:''; width:28px; height:1px; background:var(--orange);}
+.cv-name{
+  font-weight:700; font-size:clamp(52px,9vw,110px); line-height:.9; letter-spacing:-4px;
+}
+.cv-name .outline{color:transparent; -webkit-text-stroke:1.5px rgba(0,0,0,.55);}
+.cv-role{
+  font-family:'Playfair Display',serif; font-style:italic;
+  font-size:clamp(16px,2vw,22px); color:var(--purple); margin-top:18px;
+}
+.cv-badge{
+  display:inline-flex; align-items:center; gap:8px; margin-top:22px;
+  padding:9px 18px; border-radius:100px; font-size:11px; font-weight:500;
+  background:rgba(255,72,0,.12); border:1px solid rgba(255,72,0,.3); color:var(--orange);
+}
+/* GRID */
+.cv-grid{display:grid; grid-template-columns:300px 1fr; gap:28px; align-items:start;}
+.col{display:flex; flex-direction:column; gap:28px;}
+/* CARD — matches the portfolio's card language */
+.card{
+  background:var(--bg); border:2px solid var(--border); border-radius:24px;
+  padding:32px;
+}
+.card-label{
+  font-size:10px; letter-spacing:3px; text-transform:uppercase; font-weight:600;
+  margin-bottom:22px; display:flex; align-items:center; gap:10px;
+}
+.card-label::before{content:''; width:22px; height:1px; background:currentColor; opacity:.6;}
+.c-orange{color:var(--orange);} .c-blue{color:var(--blue);}
+.c-purple{color:var(--purple);} .c-pink{color:var(--pink);} .c-lime{color:var(--lime);}
+/* accent-tinted cards, like project info panels */
+.card.tint-orange{background:color-mix(in srgb, #FF4800 7%, var(--bg));}
+.card.tint-blue{background:color-mix(in srgb, #0049FF 6%, var(--bg));}
+.card.tint-purple{background:color-mix(in srgb, #7D39EB 6%, var(--bg));}
+.card.tint-pink{background:color-mix(in srgb, #FF00B5 5%, var(--bg));}
+/* SIDEBAR bits */
+.contact-list{display:flex; flex-direction:column; gap:14px; font-size:13px;}
+.contact-list a{text-decoration:none; color:var(--text); transition:color .2s;}
+.contact-list a:hover{color:var(--orange);}
+.contact-list .lbl{display:block; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-bottom:2px;}
+.chips{display:flex; flex-wrap:wrap; gap:7px;}
+.chip{
+  font-size:11px; padding:6px 13px; border:1px solid var(--border); border-radius:100px;
+  color:rgba(0,0,0,.65); transition:border-color .2s, color .2s, transform .2s;
+}
+.chip:hover{border-color:var(--purple); color:var(--purple); transform:rotate(-1.5deg);}
+.lang-row{display:flex; justify-content:space-between; font-size:13px; padding:9px 0; border-bottom:1px solid var(--border);}
+.lang-row:last-child{border-bottom:none;}
+.lang-row .lv{color:var(--muted); font-size:12px;}
+/* MAIN entries */
+.about-text{font-size:14.5px; line-height:1.9; color:rgba(0,0,0,.75);}
+.entry{padding:22px 0; border-bottom:1px solid var(--border);}
+.entry:first-of-type{padding-top:0;}
+.entry:last-child{border-bottom:none; padding-bottom:0;}
+.entry-top{display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap;}
+.entry h3{font-size:16px; font-weight:600; letter-spacing:.2px;}
+.entry .when{
+  font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--muted);
+  white-space:nowrap;
+}
+.entry .where{
+  font-family:'Playfair Display',serif; font-style:italic; font-size:13.5px;
+  color:var(--muted); margin-top:4px;
+}
+.entry ul{margin:12px 0 0 16px; display:flex; flex-direction:column; gap:7px;}
+.entry li{font-size:13.5px; line-height:1.7; color:rgba(0,0,0,.7);}
+/* PDF CTA card */
+.pdf-card{
+  text-align:center; padding:40px 32px;
+  background:
+    radial-gradient(ellipse at 50% 130%, rgba(255,72,0,.1), transparent 60%),
+    #0B0B0B;
+  border:2px solid rgba(255,255,255,.08); border-radius:24px; color:#F5F4F0;
+}
+.pdf-card p{
+  font-family:'Playfair Display',serif; font-style:italic; font-size:16px;
+  color:rgba(255,255,255,.75); margin-bottom:22px;
+}
+.pdf-btn{
+  display:inline-block; border-radius:8px; background:var(--orange); color:#fff;
+  padding:15px 36px; font-size:11px; font-weight:600; letter-spacing:2.5px;
+  text-transform:uppercase; text-decoration:none; transition:transform .2s, box-shadow .2s;
+}
+.pdf-btn:hover{transform:translateY(-2px); box-shadow:0 12px 30px rgba(255,72,0,.4);}
+/* FOOTER */
+footer{
+  max-width:1060px; margin:0 auto; padding:28px 32px 40px;
+  display:flex; justify-content:space-between; font-size:11px; color:var(--muted);
+}
+footer a{text-decoration:none; color:var(--orange); font-weight:600;}
+/* MOBILE */
+@media (max-width:820px){
+  nav{padding:16px 20px;}
+  .page{padding:120px 20px 48px;}
+  .cv-grid{grid-template-columns:1fr;}
+  .card{padding:26px 22px;}
+  footer{flex-direction:column; gap:8px; padding:20px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-back">← Back to portfolio</a>
+  <a href="assets/Sana_Ravan_CV.pdf" download="Sana_Ravan_CV.pdf" class="nav-dl">↓ Download PDF</a>
+</nav>
+
+<div class="page">
+
+  <header class="cv-head">
+    <div class="cv-eyebrow">Curriculum Vitae</div>
+    <h1 class="cv-name">SANA <span class="outline">RAVAN</span></h1>
+    <div class="cv-role">UI/UX Designer</div>
+    <div class="cv-badge">📍 Naples, Italy</div>
+  </header>
+
+  <div class="cv-grid">
+
+    <!-- SIDEBAR -->
+    <div class="col">
+      <div class="card">
+        <div class="card-label c-orange">Contact</div>
+        <div class="contact-list">
+          <a href="mailto:sana.ravan320@gmail.com"><span class="lbl">Email</span>sana.ravan320@gmail.com</a>
+          <a href="https://www.linkedin.com/in/sana-ravan" target="_blank"><span class="lbl">LinkedIn</span>sana-ravan</a>
+          <a href="https://instagram.com/sanaravan" target="_blank"><span class="lbl">Instagram</span>@sanaravan</a>
+        </div>
+      </div>
+
+      <div class="card tint-purple">
+        <div class="card-label c-purple">Skills</div>
+        <div class="chips">
+          <span class="chip">Communication</span>
+          <span class="chip">Team dynamics &amp; conflict mediation</span>
+          <span class="chip">Creative problem solving</span>
+          <span class="chip">Collaborative leadership</span>
+          <span class="chip">Cross-disciplinary thinking</span>
+        </div>
+      </div>
+
+      <div class="card tint-blue">
+        <div class="card-label c-blue">Software &amp; Tools</div>
+        <div class="chips">
+          <span class="chip">Figma</span><span class="chip">Sketch</span>
+          <span class="chip">Xcode / SwiftUI</span><span class="chip">Photoshop</span>
+          <span class="chip">Illustrator</span><span class="chip">SketchUp</span>
+          <span class="chip">Procreate</span><span class="chip">AutoCAD</span>
+          <span class="chip">3D Modeling</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-label c-lime">Languages</div>
+        <div class="lang-row"><span>English</span><span class="lv">Fluent</span></div>
+        <div class="lang-row"><span>Italian</span><span class="lv">Pre-Intermediate</span></div>
+        <div class="lang-row"><span>Persian</span><span class="lv">Native</span></div>
+      </div>
+    </div>
+
+    <!-- MAIN -->
+    <div class="col">
+      <div class="card tint-orange">
+        <div class="card-label c-orange">About Me</div>
+        <p class="about-text">Multidisciplinary designer bridging architecture, digital product design, and Apple development. With a background in architecture and a Master's in Design for Built Environment, I approach design problems with spatial intuition and systems thinking. Currently developing iOS apps and UI/UX prototypes, while building a creative practice that spans digital art, product design, and immersive user experiences. Photography and music enthusiast.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-label c-pink">Experience</div>
+
+        <div class="entry">
+          <div class="entry-top">
+            <h3>Apple Developer Academy — Student Learner</h3>
+            <span class="when">2025 – Present</span>
+          </div>
+          <div class="where">Naples, Italy</div>
+          <ul>
+            <li>Designing and prototyping iOS app concepts using SwiftUI and Xcode</li>
+            <li>Applying challenge-based methodology to solve real-world design and tech problems</li>
+            <li>Working in cross-functional teams bridging design thinking and development</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-top">
+            <h3>Freelance Designer &amp; Visual Artist</h3>
+            <span class="when">2020 – Present</span>
+          </div>
+          <div class="where">Remote · Self-employed</div>
+          <ul>
+            <li>Delivered UI/UX concepts and product design solutions for independent client briefs</li>
+            <li>Produced digital illustrations and visual art across Procreate, print, and editorial mediums</li>
+            <li>Designed and presented architectural projects with high-quality graphical storytelling</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-top">
+            <h3>Interior Designer — Art-Furniture Gallery</h3>
+            <span class="when">2021</span>
+          </div>
+          <div class="where">Shiraz · Designer / Social media manager</div>
+          <ul>
+            <li>Designed interior and landscape concepts integrating the gallery's own art objects and furniture pieces</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-top">
+            <h3>Architecture Intern — Charsough Office</h3>
+            <span class="when">2019</span>
+          </div>
+          <div class="where">Shiraz · Junior designer</div>
+          <ul>
+            <li>Contributed to Phase 1 architectural plans, layouts, and early-stage design development across multiple projects</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-label c-blue">Education</div>
+
+        <div class="entry">
+          <div class="entry-top">
+            <h3>Master's — Design for Built Environment</h3>
+            <span class="when">Sep 2023 – Present</span>
+          </div>
+          <div class="where">Federico II University, Naples, Italy</div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-top">
+            <h3>Bachelor's — Architectural Engineering</h3>
+            <span class="when">Sep 2016 – Jul 2020</span>
+          </div>
+          <div class="where">Bushehr University of Arts</div>
+        </div>
+      </div>
+
+      <div class="pdf-card">
+        <p>Prefer paper? Same story, printable.</p>
+        <a href="assets/Sana_Ravan_CV.pdf" download="Sana_Ravan_CV.pdf" class="pdf-btn">↓ Download PDF</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span>Sana Ravan · Naples · 2026</span>
+  <a href="index.html">← Back to portfolio</a>
+</footer>
+
+</body>
+</html>
